@@ -60,11 +60,23 @@ class TestBooksCollector:
         collector.set_book_genre('Властелин колец. Две крепости', 'Фэнтези')
         collector.add_new_book('Властелин колец. Возвращение короля')
         collector.set_book_genre('Властелин колец. Возвращение короля', 'Фэнтези')
-        books_genre=collector.get_books_genre()
         expect={'Властелин колец. Братство кольца':'Фэнтези',
                 'Властелин колец. Две крепости':'Фэнтези',
                 'Властелин колец. Возвращение короля':'Фэнтези'}
-        assert books_genre == expect
+        assert collector.get_books_genre() == expect
+
+    def test_get_books_for_children(self):
+        collector = BooksCollector()
+        collector.add_new_book('Гремлины')
+        collector.set_book_genre('Гремлины', 'Ужасы')
+        collector.add_new_book('Морозко')
+        collector.set_book_genre('Морозко', 'Сказка')
+        collector.add_new_book('Простоквашино')
+        collector.set_book_genre('Простоквашино', 'Детские приключения')
+        books_for_children = collector.get_books_for_children()
+        expect=['Морозко', "Простоквашино"]
+        assert books_for_children == expect
+
 
 
 
