@@ -34,5 +34,17 @@ class TestBooksCollector:
         collector.add_new_book('Дартаньян и три мушкетера. Тридцать лет спустя')
         assert len(collector.get_books_genre()) == 1
 
-    def
+    def test_set_book_genre_set_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Преступление и наказание')
+        collector.set_book_genre('Преступление и наказание', 'Роман')
+        assert collector.get_book_genre('Преступление и наказание') == 'Роман'
+
+    def test_get_book_genre_genre_on_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Гарри Поттер и Кубок огня')
+        collector.set_book_genre('Гарри Поттер и Кубок огня', 'Фэнтези')
+        assert collector.get_book_genre('Гарри Поттер и Кубок огня') == 'Фэнтези'
+
+
 
