@@ -28,10 +28,10 @@ class TestBooksCollector:
         collector.add_new_book(valid_book_name)
         assert len(valid_book_name) < 40
 
-    def test_add_new_book_exist_book(self):
+    def test_add_new_book_add_exist_book(self):
         collector = BooksCollector()
-        collector.add_new_book('Дартаньян и три мушкетера. Тридцать лет спустя')
-        collector.add_new_book('Дартаньян и три мушкетера. Тридцать лет спустя')
+        collector.add_new_book('Граф Монте Кристо')
+        collector.add_new_book('Граф Монте Кристо')
         assert len(collector.get_books_genre()) == 1
 
     def test_set_book_genre_set_genre(self):
@@ -94,10 +94,10 @@ class TestBooksCollector:
 
     def test_get_list_of_favorites_books(self):
         collector = BooksCollector()
-        collector.add_new_book('Добрый предзнаменовения')
-        collector.set_book_genre('Добрый предзнаменовения', 'Фэнтези')
-        collector.add_book_in_favorites('Луна 84')
-        assert'Добрый предзнаменовения' in collector.get_list_of_favorites_books()
+        collector.add_new_book('Добрые предзнаменовения')
+        collector.set_book_genre('Добрые предзнаменовения', 'Фэнтези')
+        collector.add_book_in_favorites('Добрые предзнаменовения')
+        assert 'Добрые предзнаменовения' in collector.get_list_of_favorites_books()
 
 
 
