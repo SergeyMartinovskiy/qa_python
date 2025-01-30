@@ -52,6 +52,20 @@ class TestBooksCollector:
         collector.set_book_genre('Оно', 'Ужасы')
         assert collector.get_books_with_specific_genre('Ужасы') == 'Оно'
 
+    def test_get_books_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Властелин колец. Братство кольца')
+        collector.set_book_genre('Властелин колец. Братство кольца', 'Фэнтези')
+        collector.add_new_book('Властелин колец. Две крепости')
+        collector.set_book_genre('Властелин колец. Две крепости', 'Фэнтези')
+        collector.add_new_book('Властелин колец. Возвращение короля')
+        collector.set_book_genre('Властелин колец. Возвращение короля', 'Фэнтези')
+        books_genre=collector.get_books_genre()
+        expect={'Властелин колец. Братство кольца':'Фэнтези',
+                'Властелин колец. Две крепости':'Фэнтези',
+                'Властелин колец. Возвращение короля':'Фэнтези'}
+        assert books_genre == expect
+
 
 
 
