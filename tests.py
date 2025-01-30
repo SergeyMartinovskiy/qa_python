@@ -46,5 +46,14 @@ class TestBooksCollector:
         collector.set_book_genre('Гарри Поттер и Кубок огня', 'Фэнтези')
         assert collector.get_book_genre('Гарри Поттер и Кубок огня') == 'Фэнтези'
 
+    def test_get_books_with_specific_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Оно')
+        collector.set_book_genre('Оно', 'Ужасы')
+        assert collector.get_books_with_specific_genre('Ужасы') == 'Оно'
+
+
+
+
 
 
