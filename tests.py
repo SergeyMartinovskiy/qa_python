@@ -18,11 +18,21 @@ class TestBooksCollector:
 
         # проверяем, что добавилось именно две
         # словарь books_rating, который нам возвращает метод get_books_rating, имеет длину 2
-        assert len(collector.get_books_rating()) == 2
+        assert len(collector.get_books_genre()) == 2
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
     def test_add_new_book_limit_str_books(self):
         collector = BooksCollector()
-        collector.add_new_book('Дартаньян и три мушкетера')
-        assert len(collector.add_new_book('Дартаньян и три мушкетера')) < 40
+        valid_book_name = 'Дартаньян и три мушкетера'
+        collector.add_new_book(valid_book_name)
+        assert len(valid_book_name) < 40
+
+    def test_add_new_book_exist_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дартаньян и три мушкетера. Тридцать лет спустя')
+        collector.add_new_book('Дартаньян и три мушкетера. Тридцать лет спустя')
+        assert len(collector.get_books_genre()) == 1
+
+    def
+
