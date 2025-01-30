@@ -77,6 +77,31 @@ class TestBooksCollector:
         expect=['Морозко', "Простоквашино"]
         assert books_for_children == expect
 
+    def test_add_book_in_favorites(self):
+        collector = BooksCollector()
+        collector.add_new_book('Темная башня')
+        collector.set_book_genre('Темная башня', 'Фэнтези')
+        collector.add_book_in_favorites('Темная башня')
+        assert 'Темная башня' in collector.favorites
+
+    def test_delete_book_from_favorites(self):
+        collector = BooksCollector()
+        collector.add_new_book('Луна 84')
+        collector.set_book_genre('Луна 84', 'Фантастика')
+        collector.add_book_in_favorites('Луна 84')
+        collector.delete_book_from_favorites('Луна 84')
+        assert 'Луна 84' not in collector.favorites
+
+    def test_get_list_of_favorites_books(self):
+        collector = BooksCollector()
+        collector.add_new_book('Добрый предзнаменовения')
+        collector.set_book_genre('Добрый предзнаменовения', 'Фэнтези')
+        collector.add_book_in_favorites('Луна 84')
+        assert'Добрый предзнаменовения' in collector.get_list_of_favorites_books()
+
+
+
+
 
 
 
