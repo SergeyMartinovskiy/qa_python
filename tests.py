@@ -80,7 +80,7 @@ class TestBooksCollector:
     def test_add_book_in_favorites(self):
         collector = BooksCollector()
         collector.add_new_book('Темная башня')
-        collector.set_book_genre('Темная башня', 'Фэнтези')
+        collector.set_book_genre('Темная башня', 'Фантастика')
         collector.add_book_in_favorites('Темная башня')
         assert 'Темная башня' in collector.favorites
 
@@ -95,7 +95,7 @@ class TestBooksCollector:
     def test_get_list_of_favorites_books(self):
         collector = BooksCollector()
         collector.add_new_book('Добрые предзнаменовения')
-        collector.set_book_genre('Добрые предзнаменовения', 'Фэнтези')
+        collector.set_book_genre('Добрые предзнаменовения', 'Комедии')
         collector.add_book_in_favorites('Добрые предзнаменовения')
         assert 'Добрые предзнаменовения' in collector.get_list_of_favorites_books()
 
