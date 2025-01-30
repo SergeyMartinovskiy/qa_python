@@ -22,4 +22,7 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
-kjgkjgkgkjgkjgk
+    def test_add_new_book_limit_str_books(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дартаньян и три мушкетера')
+        assert len(collector.add_new_book('Дартаньян и три мушкетера')) < 40
